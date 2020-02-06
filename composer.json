@@ -1,0 +1,24 @@
+{
+  "name": "meevo/skin",
+  "type": "october-plugin",
+  "description": "Demo OctoberCMS plugin",
+  "keywords": [
+    "october",
+    "cms",
+    "demo",
+    "plugin"
+  ],
+  "license": "MIT",
+  "require": {
+    "php": "^7.2",
+    "composer/installers": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Meevo\\Skin\\": ""
+    },
+    "files": [
+      "helpers.php"
+    ]
+  }
+}

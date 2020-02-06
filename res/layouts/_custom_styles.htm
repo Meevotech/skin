@@ -1,0 +1,20 @@
+<?php
+    use Backend\Models\BrandSetting;
+    use Backend\Models\EditorSetting;
+?>
+<?php if (BrandSetting::isConfigured() || BrandSetting::isBaseConfigured()): ?>
+<?php endif ?>
+<?php if($logo = BrandSetting::getLogo()): ?>
+<style>
+    .oc-logo-white,
+    .oc-logo,
+    .oc-logo-transparent {
+        background-image: url("<?=$logo;?>") !important;
+    }
+</style>
+<?php endif; ?>
+<?php if (EditorSetting::isConfigured()): ?>
+    <style>
+        <?= EditorSetting::renderCss() ?>
+    </style>
+<?php endif ?>

@@ -1,0 +1,6 @@
+plugin:
+    name: "meevo.skin::lang.plugin.name"
+    description: "meevo.skin::lang.plugin.description"
+    author: Meevo
+    icon: oc-icon-adjust
+    homepage: ""

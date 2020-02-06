@@ -1,0 +1,226 @@
+// Vendor
+@import "../vendor/sweet-alert/sweet-alert.less";
+@import "../vendor/jcrop/css/jquery.Jcrop.min.css";
+@import "system/assets/vendor/prettify/prettify.css";
+@import "system/assets/vendor/prettify/theme-desert.css";
+
+//
+// October Controls
+//
+
+@import "core/boot.less";
+@import "controls/alert.less";
+@import "controls/simplelist.less";
+@import "controls/scrollbar.less";
+@import "controls/filelist.less";
+@import "controls/common.less";
+@import "controls/reportwidgets.less";
+@import "controls/treelist.less";
+@import "controls/treeview.less";
+@import "controls/sidenav-tree.less";
+@import "controls/panels.less";
+@import "controls/selector-group.less";
+@import "controls/tree-path.less";
+@import "controls/namevaluelist.less";
+@import "controls/scrollpad.less";
+@import "controls/svg-icons.less";
+
+//
+// October Storm UI
+//
+
+@import "system/assets/ui/less/global.less";
+
+//
+// Combines layout and vendor styles
+//
+
+// Core (shared elements)
+@import "core/animations.less";
+
+// Boot variables and mixins
+@import "core/variables.less";
+@import "core/mixins.less";
+
+// Layout
+@import "layout/layout.less";
+@import "layout/flexlayout.less";
+@import "layout/mainmenu.less";
+@import "layout/sidenav.less";
+@import "layout/sidepanel.less";
+@import "layout/footer.less";
+@import "layout/outerlayout.less";
+@import "layout/fancylayout.less";
+@import "layout/flyout.less";
+
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+.bg-grad-sidebar {
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        from(#7e8ea1),
+        to(#3c4655)
+    );
+    background-image: linear-gradient(0deg, #7e8ea1, #3c4655);
+}
+
+html,
+body {
+    font-size: 14px;
+}
+
+@import url('https://rsms.me/inter/inter.css');
+body { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  body { font-family: 'Inter var', sans-serif; }
+}
+
+body {
+    @apply bg-bg;
+
+    // font-family: Inter UI,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue;
+    color: #2b333b;
+    font-size: 16px;
+    letter-spacing: -.004em;
+    font-variant: common-ligatures tabular-nums;
+    font-feature-settings: "zero","ss01";
+}
+
+nav.main-nav {
+    display: flex;
+    background-color: transparent;
+    box-shadow: none;
+    height: auto;
+    padding-top: 0;
+    padding-left: 32px;
+    padding-bottom: 24px;
+    overflow: auto;
+    width: 14rem;
+    z-index: 1;
+
+    ul {
+        list-style: none;
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 24px;
+
+        li {
+            padding: 0;
+            font-size: 14px;
+            margin-top: 15px;
+
+            a {
+                padding: 0;
+                display: -webkit-box;
+                display: flex;
+                -webkit-box-align: center;
+                align-items: center;
+                color: #454c54;
+                -webkit-transition: all 0.08s ease-in-out;
+                transition: all 0.08s ease-in-out;
+
+                .nav-icon {
+                    display: block;
+                    padding-right: 5px;
+
+                    .svg-icon {
+                        display:block;
+                        max-height: 20px;
+                    }
+                }
+            }
+
+            & > a {
+                color: #2b333b;
+                font-weight: 500;
+            }
+        }
+    }
+}
+
+.nav-main-wrapper {
+    // position: -webkit-sticky;
+    // position: sticky;
+}
+
+.pt-header {
+    padding-top: 1.75rem;
+}
+
+.no-breadcrumbs {
+    div.control-breadcrumb {
+        display: none;
+    }
+
+    .form-tabless-fields {
+        padding: 18px 23px 18px 23px;
+    }
+}
+
+.global-header {
+    background-color: #fff;
+    box-shadow: 0 0 0 0.5px rgba(49, 49, 93, 0.03),
+        0 2px 5px 0 rgba(49, 49, 93, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.08);
+    height: 48px;
+    -webkit-box-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    position: relative;
+    width: 100%;
+    padding-left: 16px;
+    padding-right: 16px;
+    z-index: 9999;
+    padding-left: 32px;
+    padding-right: 32px;
+    // z-index: 1;
+
+    ul.top-bar-user {
+        list-style: none;
+        display: flex;
+
+        margin-top: initial;
+        margin-bottom: initial;
+
+        .mainmenu-account {
+            .account-avatar {
+                width: 45px;
+                height: 45px;
+            }
+        }
+
+        .mainmenu-accountmenu {
+            position: fixed;
+            top: 0;
+            right: 20px;
+            background: #f9f9f9;
+            z-index: 600;
+            display: none;
+            -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12),
+                0 1px 4px rgba(0, 0, 0, 0.24);
+            box-shadow: 0 1px 6px rgba(0, 0, 0, 0.12),
+                0 1px 4px rgba(0, 0, 0, 0.24);
+            border-radius: 3px;
+
+            &.active {
+                top: 50px;
+                display: block;
+            }
+
+            &:after {
+                .triangle(up, 17px, 7px, @color-accountmenu-bg);
+                right: 9px;
+                top: -7px;
+                position: absolute;
+            }
+        }
+    }
+}
